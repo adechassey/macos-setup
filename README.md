@@ -37,7 +37,7 @@ exec zsh
 
 **Shell**: starship, zsh-autosuggestions, zsh-completions, zsh-fast-syntax-highlighting, fzf, zoxide
 
-**CLI tools**: bat, eza, fd, ripgrep, tldr, gh, fnm
+**CLI tools**: bat, eza, fd, ripgrep, tldr, gh, fnm, pnpm
 
 **Apps**: Ghostty, VS Code, OrbStack, Chrome, Raycast, Slack
 

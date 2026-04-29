@@ -16,6 +16,7 @@ brew "gh"
 
 # Version manager
 brew "fnm"
+brew "pnpm"
 
 # Apps
 cask "ghostty"
