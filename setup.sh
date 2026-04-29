@@ -58,6 +58,11 @@ link .zprofile
 link .gitconfig
 link .config/ghostty/config
 link .config/gh/config.yml
+link .ssh/config
+
+# SSH dir perms (sshd refuses loose perms; config.d holds per-key Host blocks)
+mkdir -p "$HOME/.ssh/config.d"
+chmod 700 "$HOME/.ssh" "$HOME/.ssh/config.d"
 
 # 6. Git identity (~/.gitconfig.local — gitignored, included by main .gitconfig)
 if [[ ! -f "$HOME/.gitconfig.local" ]]; then
