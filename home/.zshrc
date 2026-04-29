@@ -7,6 +7,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_VERIFY EXTENDED_HISTORY
 
+# Type a directory name to cd into it (no need for `cd`)
+setopt AUTO_CD
+
 # Completions
 FPATH=/opt/homebrew/share/zsh-completions:$FPATH
 autoload -Uz compinit && compinit
@@ -24,6 +27,9 @@ fi
 alias cd="z"
 alias pn="pnpm"
 alias cl="claude"
+alias c="code ."
+alias ..="cd .."
+alias ...="cd ../.."
 
 # ls aliases — use eza when available, fall back to ls
 if command -v eza &>/dev/null; then
@@ -82,7 +88,7 @@ alias gstl='git stash list'
 # cherry-pick
 alias gcp='git cherry-pick'
 
-# zoxide (smart cd) — must come after the `cd` alias above
+# zoxide (smart cd) - must come after the `cd` alias above
 eval "$(zoxide init zsh)"
 
 # fzf
