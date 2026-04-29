@@ -31,16 +31,13 @@ alias c="code ."
 alias ..="cd .."
 alias ...="cd ../.."
 
-# ls aliases — use eza when available, fall back to ls
-if command -v eza &>/dev/null; then
-  alias l='eza -lah --git'
-  alias ll='eza -lh --git'
-  alias la='eza -la --git'
-else
-  alias l='ls -lah'
-  alias ll='ls -lh'
-  alias la='ls -lAh'
-fi
+# ls aliases (eza)
+export EZA_ICONS_AUTO=always
+alias ls='eza'
+alias l='eza -l --git'
+alias ll='eza -la --git'
+alias lt='eza --tree --level=2'
+alias ldot='eza -ld .*'
 
 # Git aliases (curated from oh-my-zsh git plugin)
 # status / log
@@ -88,11 +85,11 @@ alias gstl='git stash list'
 # cherry-pick
 alias gcp='git cherry-pick'
 
-# zoxide (smart cd) - must come after the `cd` alias above
-eval "$(zoxide init zsh)"
-
 # fzf
 source <(fzf --zsh)
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+# zoxide (smart cd)
+eval "$(zoxide init zsh)"
