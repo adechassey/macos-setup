@@ -1,0 +1,5 @@
+.DS_Store
+*.bak
+*.backup-*
+home/.gitconfig.local
+home/.config/gh/hosts.yml
