@@ -25,8 +25,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # 3. Brewfile
 log "Running brew bundle..."
 if ! brew bundle --file="$REPO_DIR/Brewfile"; then
-  warn "brew bundle had failures (often Docker — needs interactive sudo). Continuing."
-  warn "Re-run 'brew bundle --file=$REPO_DIR/Brewfile' from an interactive terminal to retry."
+  warn "brew bundle had failures. Re-run from an interactive terminal to retry."
 fi
 
 # 4. fzf key bindings (don't let it touch our .zshrc — we own that)

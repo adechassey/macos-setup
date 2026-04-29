@@ -20,7 +20,7 @@ brew "fnm"
 # Apps
 cask "ghostty"
 cask "visual-studio-code"
-cask "docker"
+cask "orbstack"
 cask "google-chrome"
 cask "raycast"
 cask "slack"

@@ -37,7 +37,7 @@ exec zsh
 
 **CLI tools**: bat, eza, fd, ripgrep, tldr, gh, fnm
 
-**Apps**: Ghostty, VS Code, Docker, Chrome, Raycast, Slack
+**Apps**: Ghostty, VS Code, OrbStack, Chrome, Raycast, Slack
 
 ## What's NOT in the repo
 
