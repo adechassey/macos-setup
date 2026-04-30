@@ -15,8 +15,10 @@ read -r -p "Key name (e.g. github_personal, aws_acme): " name
 read -r -p "Comment / email: " comment
 [[ -z "$comment" ]] && { warn "comment required"; exit 1; }
 
-read -r -p "Host pattern (e.g. github.com, *.acme.internal): " host
+read -r -p "Host pattern (e.g. github.com, github.com-work, *.acme.internal): " host
 [[ -z "$host" ]] && { warn "host required"; exit 1; }
+
+read -r -p "Real hostname (blank = same as Host; set this for aliases, e.g. github.com): " hostname
 
 key_path="$HOME/.ssh/$name"
 config_path="$HOME/.ssh/config.d/$name"
@@ -33,11 +35,12 @@ log "Generating ed25519 key (you'll be asked for a passphrase — use Dashlane).
 ssh-keygen -t ed25519 -C "$comment" -f "$key_path"
 
 log "Writing ~/.ssh/config.d/$name..."
-cat > "$config_path" <<EOF
-Host $host
-  IdentityFile ~/.ssh/$name
-  IdentitiesOnly yes
-EOF
+{
+  printf 'Host %s\n' "$host"
+  [[ -n "$hostname" ]] && printf '  HostName %s\n' "$hostname"
+  printf '  IdentityFile ~/.ssh/%s\n' "$name"
+  printf '  IdentitiesOnly yes\n'
+} > "$config_path"
 chmod 600 "$config_path"
 
 log "Adding key to ssh-agent + Keychain..."
