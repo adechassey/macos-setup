@@ -58,6 +58,7 @@ link .zprofile
 link .gitconfig
 link .config/ghostty/config
 link .config/gh/config.yml
+link "Library/Application Support/eza/theme.yml"
 link .ssh/config
 
 # SSH dir perms (sshd refuses loose perms; config.d holds per-key Host blocks)

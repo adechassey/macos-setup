@@ -29,6 +29,7 @@ exec zsh
 | `home/.zprofile` | Sets up Homebrew env at login |
 | `home/.gitconfig` | Generic settings + `[include]` of gitignored `~/.gitconfig.local` |
 | `home/.config/ghostty/config` | Snazzy theme |
+| `home/Library/Application Support/eza/theme.yml` | eza colors tuned to Snazzy palette |
 | `home/.config/gh/config.yml` | gh CLI prefs |
 | `home/.ssh/config` | Global SSH defaults (Keychain + agent); per-key blocks live in `~/.ssh/config.d/*` |
 | `bin/new-ssh-key` | Generate an ed25519 key + drop a `config.d/*` block + add to Keychain |
