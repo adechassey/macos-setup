@@ -93,3 +93,6 @@ eval "$(starship init zsh)"
 
 # zoxide (smart cd)
 eval "$(zoxide init zsh)"
+
+# Per-machine overrides (gitignored)
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

@@ -2,4 +2,6 @@
 *.bak
 *.backup-*
 home/.gitconfig.local
+home/.zshrc.local
+home/.config/ghostty/config.local
 home/.config/gh/hosts.yml
