@@ -25,12 +25,12 @@ The `link()` function in `setup.sh` (lines 38–53) is the symlink machinery. It
 
 ## Layered config (what's in the repo vs. machine-local)
 
-Two configs are deliberately split into a tracked layer + a gitignored local layer:
+Several configs are deliberately split into a tracked layer + a gitignored local layer. **Anything machine- or identity-specific (AWS profiles, project aliases, host-specific tweaks) goes in the `.local` layer, never in the committed file.**
 
-- **Git identity**: `home/.gitconfig` has generic settings and `[include] path = ~/.gitconfig.local`. The `.local` file holds `user.name` / `user.email` and is generated interactively by `setup.sh` on first run (gitignored).
-- **SSH**: `home/.ssh/config` has global defaults (`AddKeysToAgent`, `UseKeychain`) and `Include config.d/*`. Per-key `Host` blocks live in `~/.ssh/config.d/<name>` and are **not** in the repo — they're created by `bin/new-ssh-key`, which generates an ed25519 key, writes the config.d block, and adds the key to the macOS Keychain.
-
-For multiple GitHub accounts, `bin/new-ssh-key` supports an alias pattern: use a Host like `github.com-work` with `HostName github.com` so the alias resolves to the real host but uses a distinct key.
+- **Git identity**: `home/.gitconfig` includes `~/.gitconfig.local`, generated interactively by `setup.sh` on first run.
+- **Shell**: `home/.zshrc` ends with `[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local`. Drop per-machine `export`s and aliases there.
+- **Ghostty**: `home/.config/ghostty/config` ends with `config-file = ?~/.config/ghostty/config.local` (the `?` makes it optional).
+- **SSH**: `home/.ssh/config` has global defaults and `Include config.d/*`. Per-key `Host` blocks live in `~/.ssh/config.d/<name>` and are created by `bin/new-ssh-key`, which generates an ed25519 key, writes the config.d block, and adds the key to the macOS Keychain. For multiple GitHub accounts, use a `Host github.com-work` alias with `HostName github.com` so the alias resolves to the real host but uses a distinct key.
 
 ## Bootstrap flow (`setup.sh`)
 
