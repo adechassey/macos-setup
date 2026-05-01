@@ -58,6 +58,7 @@ link .zprofile
 link .gitconfig
 link .config/ghostty/config
 link .config/gh/config.yml
+link .config/starship.toml
 link "Library/Application Support/eza/theme.yml"
 link .ssh/config
 
