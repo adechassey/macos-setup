@@ -27,7 +27,7 @@ fi
 alias cd="z"
 alias pn="pnpm"
 alias cl="claude"
-alias c="code ."
+alias c='open -a "Visual Studio Code" .'
 alias ..="cd .."
 alias ...="cd ../.."
 
